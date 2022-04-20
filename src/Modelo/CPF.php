@@ -2,6 +2,9 @@
 
 namespace Alura\Banco\Modelo;
 
+use DomainException;
+use Exception;
+
 final class CPF
 {
     private $numero;
@@ -16,8 +19,7 @@ final class CPF
 
         if ($numero === false) {
             //Lançar uma exceção
-            echo "Cpf inválido";
-            exit();
+            throw new DomainException("CPF no formato inválido");
         }
         $this->numero = $numero;
     }
